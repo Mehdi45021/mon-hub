@@ -27,6 +27,26 @@ npm start        # compile + démarre sur http://localhost:3001
 npm run dev      # front http://localhost:5173 + API 3001
 ```
 
+## Structure du dépôt
+
+| Dossier | Contenu |
+|---|---|
+| `src/`, `server/`, `migrations/` | Site Web Mon Hub (React + Express + SQLite) |
+| `ios/Cerveau/` | App iOS Cerveau (SwiftUI / SwiftData) — s'ouvre avec `Cerveau.xcodeproj` |
+
+Non versionnés (volontairement) : `.env`, `data/hub.db*`, `data/fichiers/`, `data/livres/`.
+
+## Démarrage automatique (macOS)
+
+Un service `launchd` (`~/Library/LaunchAgents/com.mehdi.monhub.plist`) lance le serveur à l'ouverture de session, sans MAMP.
+
+```bash
+launchctl bootout gui/$(id -u)/com.mehdi.monhub                                        # arrêter
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.mehdi.monhub.plist         # démarrer
+```
+
+Après une modification du front : `npm run build`, puis redémarrer le service.
+
 ## Sécurité
 
 | Domaine | Mise en œuvre |
