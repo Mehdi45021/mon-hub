@@ -1,0 +1,9 @@
+node_modules
+.env
+data/hub.db*
+data/fichiers/*
+!data/fichiers/.gitkeep
+dist
+data/livres/*
+!data/livres/.gitkeep
+.DS_Store
